@@ -510,10 +510,63 @@
             border-color: var(--secondary);
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
         }
+        
+        .print-only {
+            display: none;
+        }
+        
+        @media print {
+            body {
+                background: white !important;
+                padding: 0;
+            }
+            
+            .container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+            
+            header, .sidebar, .main-content, footer {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .print-btn, .quick-actions, .search-box {
+                display: none !important;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .section {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+            
+            .section h2 {
+                page-break-after: avoid;
+            }
+            
+            .violation-item {
+                page-break-inside: avoid;
+            }
+            
+            .print-only {
+                display: block;
+                text-align: center;
+                margin-bottom: 20px;
+                font-size: 24px;
+                font-weight: bold;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="print-only">ПАМЯТКА ДЛЯ ОБЩЕСТВЕННОГО НАБЛЮДАТЕЛЯ</div>
+        
         <header>
             <div class="header-content">
                 <h1><i class="fas fa-clipboard-check"></i> Памятка для общественного наблюдателя</h1>
@@ -584,6 +637,16 @@
                             <li class="important"><i class="fas fa-exclamation-circle"></i> <strong>3.</strong> Составить акт о нарушении в 2-х экземплярах</li>
                             <li class="important"><i class="fas fa-exclamation-circle"></i> <strong>4.</strong> Получить подпись председателя УИК на своем экземпляре</li>
                             <li class="important"><i class="fas fa-exclamation-circle"></i> <strong>5.</strong> Сообщить в вышестоящую комиссию или правоохранительные органы</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="violation-category">
+                        <h3><i class="fas fa-clock"></i> Временные рамки работы:</h3>
+                        <ul class="checklist">
+                            <li><i class="fas fa-check-circle"></i> Прибыть на участок за 30 минут до открытия</li>
+                            <li><i class="fas fa-check-circle"></i> Находиться на участке с 8:00 до 20:00</li>
+                            <li><i class="fas fa-check-circle"></i> Не покидать участок более чем на 30 минут</li>
+                            <li><i class="fas fa-check-circle"></i> Присутствовать при подсчете голосов до подписания протокола</li>
                         </ul>
                     </div>
                 </section>
